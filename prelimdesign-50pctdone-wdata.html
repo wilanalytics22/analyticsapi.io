@@ -356,7 +356,7 @@ jQuery("#api-response").ready(function (){
 
 MarketingCloud.makeRequest(config.username, config.secret, "Report.Get", {"reportID": localStorage.reportID1 }, config.endpoint, function(e) {
                 var foo = e.responseText;
-                localStorage.set("tmsales", foo);
+                localStorage.setItem("tmsales", foo);
                 console.log("functions fired to GET--->" + foo);
                 jQuery("#api-response-data").html(e.responseText);
     });
