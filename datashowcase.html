@@ -10,6 +10,8 @@
 <!--Include the libraries we will be using -->
 <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
 <script src="js/jquery-2.1.0.min.js" type="text/javascript"></script>
+<!--Pulling API Data -->
+<script src="js/datapull.js" type="text/javascript"></script>
 
 <!--Animate Text -->
 <script src="js/morphext.min.js" type="text/javascript"></script>
@@ -17,6 +19,7 @@
 
     <!-- Using D3 for Charting -->
 <script src="js/d3.v2.js" type="text/javascript"></script>
+<script src="js/liquidFillGauge.js" type="text/javascript"></script>
 <script src="js/d3.animated_trend.js" type="text/javascript"></script>
 <script src="js/d3.donut.js" type="text/javascript"></script>
 <!-- Using Jquery-animateNumber to change the number in a more eye catching way -->
@@ -188,72 +191,7 @@ var config = {
 <!--<div id="api-response"><span>[CONTENT AREA - PLACEHOLDER]</span>&nbsp;</div>-->
 <!--<div id="api-response-status">&nbsp;</div>-->
 <!--<div id="api-response-data">check local storage for JSON on Product Orders</div>-->
-    <script type="text/javascript">
 
-
-        var params1 = {  
-    "reportDescription":{
-    "reportSuiteID": "heatglobalprod",
-    "dateFrom": "2019-03-01",
-    "dateTo": "2019-04-01",
-    "dateGranularity": "month",
-        "metrics": [{
-                "id": "orders",
-            }],
-    "elements": [
-      {
-          "id": "product",
-           "top": 10
-      }],
-}
-}
-
-
- 
-jQuery(document).ready(function() {
-    jQuery("#api-response").html("calling...");
-
-//Queue Report
-MarketingCloud.makeRequest(config.username, config.secret, "Report.Queue", params1, config.endpoint, function(e) {
-        console.log("functions fired for report to QUEUE");
-        var foo = JSON.parse(e.responseText).reportID;
-        localStorage.setItem("reportID1", foo);
-        jQuery("#api-response").html(e.responseText);
-            });
-
-
-//Get Report Status
-jQuery("#api-response").ready(function (){
-    //setInterval(function() {
-MarketingCloud.makeRequest(config.username, config.secret, "Report.GetQueue", {"reportID": localStorage.reportID1 }, config.endpoint, function(e) {
-jQuery("#api-response-status").html(e.responseText);
-});
-    //}, 6000);
-
-});
-
-
-//Get Report When Ready
-
-jQuery("#api-response").ready(function (){
-    //setTimeout(function() {
-
-
-MarketingCloud.makeRequest(config.username, config.secret, "Report.Get", {"reportID": localStorage.reportID1 }, config.endpoint, function(e) {
-                var foo = e.responseText;
-                localStorage.setItem("tmsales", foo);
-                console.log("functions fired to GET--->" + foo);
-                //jQuery("#api-response-data").html(e.responseText);
-    });
-
-    //}, 30000);
-
-});
-
-  });
-
-
-    </script>
 
 <!-- content 2 design start -->
     <div class='some-page-wrapper'>
@@ -283,10 +221,29 @@ MarketingCloud.makeRequest(config.username, config.secret, "Report.Get", {"repor
             <div class='column'>
                 <div class='orange-column' style='padding: 15px;background-color: royalblue;'>
 <h1>Ticketmaster Data</h1>
+<h2 style="font-family:sans-serif;font-style: italic;">What if you were able to determine percentage of digital sales before an event?</h2>
                 </div>
                 </div>
 
                     <div class='double-column' style='padding: 15px;'>
+<svg id="fillgauge1" width="97%" height="250" onclick="gauge1.update(NewValue());"></svg>
+<script type="text/javascript">
+    loadLiquidFillGauge("fillgauge1", 55);
+    /*
+var gauge1 = loadLiquidFillGauge("fillgauge1", 55);
+    var config1 = liquidFillGaugeDefaultSettings();
+    config1.circleColor = "#FF7777";
+    config1.textColor = "#FF4444";
+    config1.waveTextColor = "#FFAAAA";
+    config1.waveColor = "#FFDDDD";
+    config1.circleThickness = 2;
+    config1.textVertPosition = 0.2;
+    config1.waveAnimateTime = 200;
+    */
+
+</script>
+
+
 
                 <p> Lorem ipsum dolor amet chillwave vice subway tile, jean shorts activated charcoal 8-bit tbh lyft fam cliche tumeric vape beard kinfolk. Retro venmo tattooed direct trade kitsch.</p>
                 </div>
