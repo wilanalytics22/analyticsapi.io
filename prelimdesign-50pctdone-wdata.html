@@ -355,7 +355,8 @@ jQuery("#api-response").ready(function (){
 
 
 MarketingCloud.makeRequest(config.username, config.secret, "Report.Get", {"reportID": localStorage.reportID1 }, config.endpoint, function(e) {
-                var foo = e.responseText;
+                var foo = [e.responseText];
+                localStorage.set("tmsales", foo);
                 //var reportVal = e.responseJSON.report;
                 console.log("functions fired to GET--->" + foo);
                 //var foo = JSON.parse(e.responseText).reportID;
