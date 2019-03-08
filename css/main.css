@@ -58,14 +58,23 @@ box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 width:100%;
 }
 
-#content h1,
-#content span#total,
+
 #content span#desc {
   font-family:Oswald;
   color: #FFFFFF;
 }
 
-#content p{
+#content p {
+  font-family:Oswald;
+  color: #FFFFFF;
+}
+
+#content span#total {
+  display: block;
+
+  /*Adjust these to make the numbers bigger on the number widget*/
+  font-size: 80px;
+  line-height: 100px;
   font-family:Oswald;
   color: #FFFFFF;
 }
@@ -86,6 +95,7 @@ background-color: #add8e6;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+  min-height: 500px;
 }
 
 .column {
@@ -117,6 +127,10 @@ height:100%;
   flex: 2
 }
 
+h1, h2, p, span {
+  font-family:Oswald;
+  color: #FFFFFF;
+}
 
 /*Page Design END*/
 
@@ -247,13 +261,7 @@ Widget should be follows by a twothirds widget */
     height: 100%;
     width: 100%;
 }
-.number {
-    display: block;
 
-    /*Adjust these to make the numbers bigger on the number widget*/
-    font-size: 80px;
-    line-height: 100px;
-}
 .no-data {
     font-size: 60px;
     color: #777;

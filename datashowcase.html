@@ -55,10 +55,10 @@ var config = {
 
 <div class="logo"><img src="images/careers_EY.png" style="background-color:#000000" alt="EY Ernst Young logo" border="0"></div>
 
-<a href="#section0" class="smnt-subNavBtn">Case studies</a>
-<a href="#section1" class="smnt-subNavBtn smnt-active">Insights</a>
-<a href="#section3" class="smnt-subNavBtn">Focus areas</a>
-<a href="#section5" class="smnt-subNavBtn">People</a>
+<a href="#section0" class="smnt-subNavBtn">Case Studies</a>
+<a href="#section1" class="smnt-subNavBtn smnt-active">Ticketmaster</a>
+<a href="#section3" class="smnt-subNavBtn">eCommerce Analytics</a>
+<a href="#section5" class="smnt-subNavBtn">Real-Time</a>
 </div>
 <!--navigation code end-->
 
@@ -170,7 +170,7 @@ var config = {
             <div id="numberWidget">
             <br>
             <span id="desc">Page-views in Real-Time | Last 2 Hours (Updates every 5 secs - 2 mins)</span>
-            <span id="total" class="number">3,795</span>
+            <span id="total">3,795</span>
             </div>
 
             <div id="trendGraph"></div>
@@ -184,14 +184,10 @@ var config = {
 
 
 <!--content placeholder 2 start-->
-<div id="content2"><span>[CONTENT AREA - PLACEHOLDER]</span>
-<div id="api-response">&nbsp;</div>
-<br>
-<br>
-<div id="api-response-status">&nbsp;</div>
-<br>
-<br>
-<div id="api-response-data">&nbsp;</div>
+<div id="content2">
+<!--<div id="api-response"><span>[CONTENT AREA - PLACEHOLDER]</span>&nbsp;</div>-->
+<!--<div id="api-response-status">&nbsp;</div>-->
+<!--<div id="api-response-data">check local storage for JSON on Product Orders</div>-->
     <script type="text/javascript">
 
 
@@ -247,7 +243,7 @@ MarketingCloud.makeRequest(config.username, config.secret, "Report.Get", {"repor
                 var foo = e.responseText;
                 localStorage.setItem("tmsales", foo);
                 console.log("functions fired to GET--->" + foo);
-                jQuery("#api-response-data").html(e.responseText);
+                //jQuery("#api-response-data").html(e.responseText);
     });
 
     //}, 30000);
@@ -259,8 +255,46 @@ MarketingCloud.makeRequest(config.username, config.secret, "Report.Get", {"repor
 
     </script>
 
+<!-- content 2 design start -->
+    <div class='some-page-wrapper'>
+        <img src="images/vice-nights-retail-slide-1-pano.jpg" style="width:100%;margin-bottom: -3.6px;">
+        <div class='row'>
+            <div class='double-column' style='padding: 15px;'>
+                <p> Lorem ipsum dolor amet chillwave vice subway tile, jean shorts activated charcoal 8-bit tbh lyft fam cliche tumeric vape beard kinfolk. Retro venmo tattooed direct trade kitsch.</p>
+            </div>
+            <div class='column'>
+                <div class='orange-column' style='padding: 15px;background-color: pink;'>
+                <h1>Heatstore Data</h1>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<!--content placeholder 2 end-->
+<!--content 2 design end-->
+
+<!-- content 3 design start -->
+<div id="content3">
+        <div class='some-page-wrapper'>
+        <div class='row'>
+
+            <div class='column'>
+                <div class='orange-column' style='padding: 15px;background-color: royalblue;'>
+<h1>Ticketmaster Data</h1>
+                </div>
+                </div>
+
+                    <div class='double-column' style='padding: 15px;'>
+
+                <p> Lorem ipsum dolor amet chillwave vice subway tile, jean shorts activated charcoal 8-bit tbh lyft fam cliche tumeric vape beard kinfolk. Retro venmo tattooed direct trade kitsch.</p>
+                </div>
+            
+        </div>
+    </div>
+</div>
+
+</div>
+<!--content 3 design end-->
 
 
 </body>
